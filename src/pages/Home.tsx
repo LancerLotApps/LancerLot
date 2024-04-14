@@ -1,4 +1,3 @@
-import React from 'react';
 import GoalsPage from './Goal';
 import AppsPage from './AppsPage';
 

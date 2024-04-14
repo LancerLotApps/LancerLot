@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import {Route, Routes} from 'react-router-dom';
 import './App.css';
