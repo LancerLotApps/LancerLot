@@ -1,6 +1,6 @@
 {
   "name": "lancerlot",
-  "homepage": "https://www.lancerlot.in",
+  "homepage": "https://lancerlotgames.github.io/LancerLot/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build -b release",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
