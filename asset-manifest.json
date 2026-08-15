@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/LancerLot/static/css/main.8f060e59.css",
+    "main.js": "/LancerLot/static/js/main.021cbc71.js",
+    "static/js/453.78f1f908.chunk.js": "/LancerLot/static/js/453.78f1f908.chunk.js",
+    "static/media/SnakePromo1080p.mp4": "/LancerLot/static/media/SnakePromo1080p.b0083428cc7b1db967dd.mp4",
+    "static/media/TetrisPromo.mp4": "/LancerLot/static/media/TetrisPromo.8690ddcb272656136919.mp4",
+    "static/media/evolve2048.png": "/LancerLot/static/media/evolve2048.31670cf9416ab2213fd2.png",
+    "static/media/snakeScene.png": "/LancerLot/static/media/snakeScene.0f43201a2e18675a254f.png",
+    "static/media/tetrisSmiley.png": "/LancerLot/static/media/tetrisSmiley.d303d602aed15cee3fda.png",
+    "static/media/logo.png": "/LancerLot/static/media/logo.06348d01604799658c40.png",
+    "static/media/logo-dark.svg": "/LancerLot/static/media/logo-dark.3e16ed775fd74810daea8cb60e68f0d5.svg",
+    "static/media/background-dark.svg": "/LancerLot/static/media/background-dark.6e6b34ff913b82f9d78304b09ea1ed27.svg",
+    "index.html": "/LancerLot/index.html",
+    "main.8f060e59.css.map": "/LancerLot/static/css/main.8f060e59.css.map",
+    "main.021cbc71.js.map": "/LancerLot/static/js/main.021cbc71.js.map",
+    "453.78f1f908.chunk.js.map": "/LancerLot/static/js/453.78f1f908.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f060e59.css",
+    "static/js/main.021cbc71.js"
+  ]
+}

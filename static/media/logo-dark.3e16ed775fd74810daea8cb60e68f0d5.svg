@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
+  <!-- Evolve 2048 - Main Menu logo (halo + medallion ring + brand mark), dark mode.
+       Hand-derived from the live app: ui/BrandMark.kt (the isometric-cube mark itself),
+       ui/MainMenuScreen.kt (the halo + medallion Box composition), and the DarkClassyPalette
+       in ui/ClassyStyle.kt (halo/rim/shine colors) + GoldPrimaryDark/GoldSecondaryDark in
+       ui/theme/Color.kt (the mark's own cube colors). Not exported from Compose - authored to
+       match those values exactly for use outside the app (promo animation). -->
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4B892" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#D4B892" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#D4B892"/>
+      <stop offset="70%" stop-color="#C5A880" stop-opacity="0.40"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.70"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.40"/>
+      <stop offset="65%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="coreTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#D9B45C"/>
+    </linearGradient>
+    <linearGradient id="coreLeft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D9B45C"/>
+      <stop offset="100%" stop-color="#776333"/>
+    </linearGradient>
+    <linearGradient id="coreRight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#625129"/>
+      <stop offset="100%" stop-color="#362D17"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Halo: the "room's light source" glow behind everything -->
+  <circle class="mark-halo" cx="240" cy="240" r="200" fill="url(#halo)"/>
+
+  <!-- Medallion: lifted circular frame -->
+  <circle cx="240" cy="240" r="137" fill="#2E2921"/>
+  <circle cx="240" cy="240" r="137" fill="url(#shine)"/>
+  <circle cx="240" cy="240" r="137" fill="none" stroke="url(#rim)" stroke-width="4"/>
+  <circle cx="240" cy="240" r="134.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="1.5"/>
+
+  <!-- Brand mark: dashed orbit rings -->
+  <g fill="none">
+    <circle class="mark-ring mark-ring-1" cx="240" cy="240" r="105.4" stroke="#D9B45C" stroke-opacity="0.55" stroke-width="1.58" stroke-dasharray="5.27,10.54,21.08,10.54"/>
+    <circle class="mark-ring mark-ring-2" cx="240" cy="240" r="89.59" stroke="#F0D8A0" stroke-opacity="0.65" stroke-width="1.32" stroke-dasharray="2.11,4.22"/>
+    <circle class="mark-ring mark-ring-3" cx="240" cy="240" r="113.3" stroke="#D9B45C" stroke-opacity="0.35" stroke-width="1.05" stroke-dasharray="1.05,6.32"/>
+  </g>
+
+  <!-- Outer wireframe cube (primary gold, faint) -->
+  <g transform="translate(240,240) rotate(15) scale(0.5007)" stroke="#D9B45C" stroke-opacity="0.75" stroke-width="2.5" fill="#D9B45C" fill-opacity="0.16">
+    <path d="M 0 -140 L 121 -70 L 0 0 L -121 -70 Z"/>
+    <path d="M -121 -70 L 0 0 L 0 140 L -121 70 Z"/>
+    <path d="M 0 0 L 121 -70 L 121 70 L 0 140 Z"/>
+  </g>
+
+  <!-- Middle wireframe cube (secondary gold, brighter) -->
+  <g transform="translate(240,240) rotate(-20) scale(0.3584)" stroke="#F0D8A0" stroke-opacity="0.9" stroke-width="2.5" fill="#F0D8A0" fill-opacity="0.32">
+    <path d="M 0 -140 L 121 -70 L 0 0 L -121 -70 Z"/>
+    <path d="M -121 -70 L 0 0 L 0 140 L -121 70 Z"/>
+    <path d="M 0 0 L 121 -70 L 121 70 L 0 140 Z"/>
+  </g>
+
+  <!-- Faceted solid core: per-face gradient shading (bright top, mid left, shadowed right) -->
+  <g transform="translate(240,240) rotate(35) scale(0.2635)">
+    <path d="M 0 -140 L 121 -70 L 0 0 L -121 -70 Z" fill="url(#coreTop)"/>
+    <path d="M -121 -70 L 0 0 L 0 140 L -121 70 Z" fill="url(#coreLeft)"/>
+    <path d="M 0 0 L 121 -70 L 121 70 L 0 140 Z" fill="url(#coreRight)"/>
+    <path d="M 0 -140 L 121 -70 L 0 0 L -121 -70 Z" fill="none" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="1.8"/>
+    <path d="M 0 -140 L 60 -105 L 0 -70 L -60 -105 Z" fill="#FFFFFF" fill-opacity="0.95"/>
+  </g>
+
+  <!-- Sparkle glints -->
+  <g stroke="#FFFFFF" stroke-linecap="round">
+    <g class="mark-sparkle mark-sparkle-1" stroke-width="1.096">
+      <line x1="202.58" y1="183.08" x2="216.28" y2="183.08"/>
+      <line x1="209.43" y1="176.23" x2="209.43" y2="189.93"/>
+      <circle cx="209.43" cy="183.08" r="2.055" fill="#FFFFFF" stroke="none"/>
+    </g>
+    <g class="mark-sparkle mark-sparkle-2" stroke-width="0.590" stroke-opacity="0.85">
+      <line x1="277.42" y1="271.62" x2="284.80" y2="271.62"/>
+      <line x1="281.11" y1="267.93" x2="281.11" y2="275.31"/>
+      <circle cx="281.11" cy="271.62" r="1.107" fill="#FFFFFF" fill-opacity="0.85" stroke="none"/>
+    </g>
+  </g>
+
+  <!-- Drifting particles -->
+  <g class="mark-particles" fill="#D9B45C">
+    <circle cx="221.56" cy="216.29" r="1.897"/>
+    <circle cx="263.72" cy="226.83" r="1.370"/>
+    <circle cx="226.83" cy="268.99" r="1.897"/>
+    <circle cx="268.99" cy="258.45" r="1.370"/>
+    <circle cx="240" cy="192.57" r="1.897"/>
+  </g>
+</svg>
