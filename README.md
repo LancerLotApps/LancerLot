@@ -1,4 +1,4 @@
-# LancerLot Games
+# [LancerLot Games](https://lancerlotgames.github.io/LancerLot/)
 
 React Website for LancerLot Games.
 
@@ -7,8 +7,7 @@ getting annoyed by ads. That's why we've set on a journey to create extensive co
 enjoy, right at your fingertips. At the outset, we embarked on our journey within the Casual Games genre, crafting
 experiences that delight and entertain.
 
-Learn more about us here.
-
+Learn more about us [here](https://lancerlotgames.github.io/LancerLot/).
 
 ## Available Scripts
 

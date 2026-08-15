@@ -6,8 +6,10 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Tetris from './pages/Tetris';
 import Snake from './pages/Snake';
+import Evolve2048 from './pages/Evolve2048';
 import Home from './pages/Home';
 import IdeaPage from './pages/IdeaPage';
+import Terms from './pages/Terms';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
         <Routes>
           <Route path='/tetris' element={<Tetris/>} />
           <Route path='/snake' element={<Snake/>} />
+          <Route path='/evolve2048' element={<Evolve2048/>} />
           <Route path='/idea' element={<IdeaPage/>}/>
+          <Route path='/terms' element={<Terms/>}/>
           <Route path='/*' element={<Home/>}/>
         </Routes>
         <Footer/>

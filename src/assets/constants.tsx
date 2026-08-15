@@ -1,12 +1,8 @@
-export const goal: string = `
-Our believe is that everyone deserves access to thrilling gaming experiences without breaking the bank or without 
-getting annoyed by ads. That's why we've set on a journey to create extensive collection of free games for you to 
-enjoy, right at your fingertips. At the outset, we embarked on our journey within the Casual Games genre, crafting 
-experiences that delight and entertain. However, fueled by our passion for gaming diversity and innovation, 
-we're excited to announce that our horizons are expanding. Soon, we'll be venturing into new genres, enriching our 
-offerings to cater to a broader spectrum of gaming tastes and preferences. Stay tuned as we evolve and continue to 
-push the boundaries of gaming excellence.
-`
+export const missionEyebrow: string = `A small games studio`;
+export const missionHeadline: string = `Small, free games worth your time.`;
+export const missionSubhead: string = `LancerLot makes casual games for the browser and mobile. Our browser games
+are entirely free with no ads. A couple of our mobile apps carry light, optional ads to keep development going —
+always removable with a one-time purchase.`;
 export const suggestion: string = `
 We deeply value your perspectives and insights, as they play a pivotal role in shaping the future of our gaming journey.
 Your feedback fuels our creativity and drives us to innovate, making our interaction a true two-way conversation. 
@@ -19,7 +15,26 @@ https://docs.google.com/forms/d/e/1FAIpQLSc8_X2bPp4DxLxrVrCxw5vhgJtENTNxshcFQu-x
 export const message: string = `Hi! I came across this amazing Website for Games that might interest you.`;
 export const hashTags: string = `#Games #Enjoy #Godot #LancerLot`;
 export const instagramURL: string = `https://www.instagram.com/_lancer_lot/`;
-export const twitterURL: string = `https://twitter.com/__Acer_`;
+export const twitterURL: string = `https://x.com/_lancer_lot`;
 export const youtubeURL: string = `https://www.youtube.com/channel/UCKN_X0C7652YZghUMT4rKeQ`;
-export const fbURL: string = ``;
+export const fbURL: string = `https://www.facebook.com/profile.php?id=100066361705158`;
+export const githubURL: string = `https://github.com/LancerLotGames/LancerLotGames.github.io/blob/main/tetris/README.md`
+export const evolve2048PlayStoreURL: string = `https://play.google.com/store/apps/details?id=com.lancerlot.g2048`
+export const evolve2048PrivacyPolicyURL: string = `https://lancerlotapps.github.io/privacy-policy/evolve2048/`
+export const tetrisPrivacyPolicyURL: string = `https://lancerlotapps.github.io/privacy-policy/tetris/`
+export const termsAndPrivacy: string = `
+Last updated: August 2026
+
+We do not collect, store, or share any personal information from visitors or players.
+Our games run entirely in your browser, do not require an account, and we do not currently
+use tracking cookies or third-party analytics.
+
+If this changes in the future — for example, if ads or analytics are added — this page will
+be updated to describe exactly what is collected and why.
+
+By using this site or its games, you agree to use them for personal, non-commercial enjoyment.
+All content is provided as-is, without warranty of any kind.
+
+Questions? Reach out via any of the social links in the site header.
+`
 

@@ -1,11 +1,13 @@
-import GoalsPage from './Goal';
+import Hero from './Hero';
 import AppsPage from './AppsPage';
 
 function Home() {
   return (
     <>
-      <GoalsPage/>
-      <AppsPage/>
+      <Hero/>
+      <div id='games' style={{paddingTop: 32, scrollMarginTop: 24, backgroundColor: '#ffffff'}}>
+        <AppsPage/>
+      </div>
     </>
   );
 }

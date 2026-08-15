@@ -1,5 +1,61 @@
+/* Fallback canvas for edge gaps (overscroll bounce, vacated sticky header) —
+   dark near the top to match the hero, transitioning once to white, then
+   staying white for the rest of the document to match the cards section. */
+html, body {
+  background: linear-gradient(to bottom, #171d0c 0px, #171d0c 300px, #ffffff 600px, #ffffff 100%);
+}
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .App {
   text-align: center;
+  /* The footer is position:fixed (doesn't push layout) and only 46px tall;
+     this keeps real content from sitting under it once it slides in at the
+     true bottom of the page. */
+  padding-bottom: 64px;
+}
+
+.site-header {
+  transition: transform 0.35s ease;
+}
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+.site-footer {
+  z-index: 10;
+  transition: transform 0.35s ease;
+}
+.site-footer.footer-hidden {
+  transform: translateY(100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-footer {
+    transition: none;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .App-logo {
@@ -22,31 +78,113 @@
   }
 }
 
-.promo-video-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1; /* Ensures the video is behind other content */
-}
-.promo-video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure video fills the container while maintaining aspect ratio */
-}
-.promo-content {
-  background: rgba(5, 0, 0, 0.3);
-  padding: 15px;
-}
-.badge{
-  width: 70%;
-  height: auto;
-}
-.bottom{
+.sr-only {
   position: absolute;
-  bottom: 10%;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Game detail pages (Tetris / Evolve 2048 / Snake) ---- */
+/* Fixed, full-viewport, non-scrolling: removes this section from the
+   document's normal flow entirely, so the page has nothing to scroll and
+   the header/footer auto-hide logic naturally never triggers (it only
+   reacts to scroll position). */
+.game-hero {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.game-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.game-hero-media video,
+.game-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.game-hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(10, 12, 6, 0.85) 0%, rgba(10, 12, 6, 0.35) 20%, transparent 32%),
+    linear-gradient(to bottom, transparent 55%, rgba(23, 29, 12, 0.75) 80%, rgba(23, 29, 12, 0.95) 100%);
+  pointer-events: none;
+}
+.game-hero-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 128px 24px 0;
+  text-align: center;
+}
+.game-hero-panel {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 24px 76px;
+  text-align: center;
+}
+.game-hero-title {
+  font-family: cursive;
+  font-weight: 700;
+  letter-spacing: .05rem;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  color: #f6f2e6;
+  margin: 0;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.95), 0 4px 10px rgba(0, 0, 0, 0.9), 0 8px 28px rgba(0, 0, 0, 0.8);
+}
+.game-hero-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(243, 239, 225, 0.85);
+  max-width: 56ch;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9), 0 5px 18px rgba(0, 0, 0, 0.75);
+}
+.game-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 12px;
+}
+.game-hero-actions img {
+  height: 56px;
+  width: auto;
+}
+.game-hero-privacy-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(243, 239, 225, 0.75);
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .game-hero-actions img {
+    height: 48px;
+  }
 }
 @keyframes bouncing {
   0%, 20%, 50%, 80%, 100% {
@@ -61,4 +199,245 @@
 }
 .bounce {
   animation: bouncing 1s infinite;
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 24px 32px;
+  background:
+    radial-gradient(1100px 560px at 12% 10%, rgba(121, 183, 64, 0.16), transparent 60%),
+    linear-gradient(to bottom, #171d0c 0%, #26300f 45%, #303d11 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='104'%3E%3Cpolygon points='30,0 90,0 120,52 90,104 30,104 0,52' fill='none' stroke='%23ffffff' stroke-opacity='0.5' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 150px 130px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+/* Sits in normal flow right after the pillar text, so it starts exactly where
+   the content ends on any screen instead of guessing a fixed offset. */
+.hero-fade {
+  height: clamp(80px, 12vw, 160px);
+  background: linear-gradient(to bottom, #303d11 0%, #ffffff 100%);
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  max-width: 1180px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.hero-copy {
+  flex: 1 1 420px;
+  max-width: 560px;
+  text-align: left;
+}
+.hero-eyebrow {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #d9b354;
+  margin: 0 0 14px;
+}
+.hero-headline {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1;
+  font-weight: 600;
+  font-size: clamp(2.1rem, 4.4vw, 3.5rem);
+  line-height: 1.08;
+  color: #f6f2e6;
+  margin: 0 0 20px;
+}
+.hero-subhead {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(243, 239, 225, 0.78);
+  margin: 0 0 28px;
+  max-width: 48ch;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1b230c;
+  background: #d9b354;
+  padding: 12px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(217, 179, 84, 0.35);
+}
+.hero-cta:focus-visible {
+  outline: 2px solid #f6f2e6;
+  outline-offset: 3px;
+}
+
+.medallion-stack {
+  position: relative;
+  flex: 1 1 320px;
+  height: 320px;
+  perspective: 1400px;
+}
+.medallion-slot {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.medallion-slot-a { top: 6%; left: 2%; transform: translateZ(60px) rotate(-7deg); }
+.medallion-slot-b { top: 42%; left: 38%; transform: translateZ(15px) rotate(9deg); }
+.medallion-slot-c { top: 0%; left: 60%; transform: translateZ(-25px) rotate(-4deg) scale(0.82); }
+
+.medallion {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(217, 179, 84, 0.9);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), inset 0 0 0 2px rgba(20, 25, 10, 0.6);
+  transform: translate(calc(var(--mx, 0) * var(--px, 10px)), calc(var(--my, 0) * var(--py, 10px)));
+  transition: transform 0.2s ease-out;
+}
+.medallion-slot-a .medallion { --px: 18px; --py: 14px; }
+.medallion-slot-b .medallion { --px: 10px; --py: 8px; width: 150px; height: 150px; }
+.medallion-slot-c .medallion { --px: 6px; --py: 5px; }
+.medallion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .medallion-slot-a .medallion { animation: medallion-float 6s ease-in-out infinite; }
+  .medallion-slot-b .medallion { animation: medallion-float 6.5s ease-in-out infinite; animation-delay: 0.6s; }
+  .medallion-slot-c .medallion { animation: medallion-float 5.5s ease-in-out infinite; animation-delay: 1.2s; }
+}
+@keyframes medallion-float {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -14px; }
+}
+@media (max-width: 900px) {
+  .hero-inner { flex-direction: column; text-align: center; }
+  .hero-copy { flex: 0 0 auto; text-align: center; max-width: 520px; }
+  .hero-subhead { margin-left: auto; margin-right: auto; }
+  .medallion-stack { flex: 0 0 auto; width: 100%; height: 260px; }
+}
+
+.pillars {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1080px;
+  margin: 56px auto 0;
+  text-align: left;
+}
+.pillar-icon {
+  display: inline-flex;
+  color: #d9b354;
+}
+.pillar-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  color: #f6f2e6;
+  margin: 10px 0 4px;
+}
+.pillar-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(243, 239, 225, 0.72);
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .pillars { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .pillar-icon { display: block; }
+}
+
+/* ---- Evolve 2048 mark (logo-dark.svg, inlined for per-part animation) ---- */
+.evolve-mark {
+  overflow: visible;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .evolve-mark .mark-ring {
+    transform-origin: 240px 240px;
+    animation: mark-spin linear infinite;
+  }
+  .evolve-mark .mark-ring-1 { animation-duration: 40s; }
+  .evolve-mark .mark-ring-2 { animation-duration: 26s; animation-direction: reverse; }
+  .evolve-mark .mark-ring-3 { animation-duration: 60s; }
+  .evolve-mark .mark-halo {
+    transform-origin: 240px 240px;
+    animation: mark-pulse 5s ease-in-out infinite;
+  }
+  .evolve-mark .mark-sparkle {
+    transform-origin: center;
+    animation: mark-twinkle 3.2s ease-in-out infinite;
+  }
+  .evolve-mark .mark-sparkle-2 { animation-delay: 1.1s; }
+  .evolve-mark .mark-particles circle {
+    animation: mark-twinkle 4.6s ease-in-out infinite;
+  }
+  .evolve-mark .mark-particles circle:nth-child(2) { animation-delay: 0.7s; }
+  .evolve-mark .mark-particles circle:nth-child(3) { animation-delay: 1.4s; }
+  .evolve-mark .mark-particles circle:nth-child(4) { animation-delay: 2.1s; }
+  .evolve-mark .mark-particles circle:nth-child(5) { animation-delay: 2.8s; }
+}
+@keyframes mark-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes mark-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.06); opacity: 0.75; }
+}
+@keyframes mark-twinkle {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* ---- Evolve 2048 scene (background tile + mark), shared by card and game page ---- */
+.evolve-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #171512;
+}
+.evolve-scene-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.evolve-scene .evolve-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+  height: auto;
+}
+.evolve-scene-card .evolve-mark {
+  width: 78%;
 }

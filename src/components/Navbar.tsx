@@ -8,10 +8,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import {Favorite, Instagram, Facebook, Twitter, YouTube} from '@mui/icons-material';
+import {Favorite, Instagram, Facebook, Twitter, YouTube, GitHub} from '@mui/icons-material';
 import {Tooltip} from '@mui/material';
 import Logo from './Logo';
-import {fbURL, instagramURL, twitterURL, youtubeURL} from "../assets/constants";
+import {fbURL, githubURL, instagramURL, twitterURL, youtubeURL} from "../assets/constants";
+import {useScrollEdge} from '../hooks/useScrollEdge';
 
 const pages = [
   {
@@ -34,9 +35,15 @@ const pages = [
     icon: <YouTube/>,
     link: youtubeURL,
   },
+  {
+    name: 'Github & Download',
+    icon: <GitHub/>,
+    link: githubURL,
+  }
 ];
 
 function ResponsiveAppBar() {
+  const {atTop} = useScrollEdge();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -49,7 +56,7 @@ function ResponsiveAppBar() {
   }
 
   return (
-    <AppBar position='sticky' color='primary'>
+    <AppBar position='sticky' color='primary' className={`site-header ${atTop ? '' : 'nav-hidden'}`.trim()}>
       <Container sx={{width:"100vw"}}>
         <Toolbar disableGutters>
           <Logo/>
