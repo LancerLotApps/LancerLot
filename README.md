@@ -1,13 +1,13 @@
-# [LancerLot Games](https://lancerlotgames.github.io/LancerLot/)
+# [LancerLot Apps](https://lancerlotapps.github.io/LancerLot/)
 
-React Website for LancerLot Games.
+React Website for LancerLot Apps.
 
 Our belief is that everyone deserves access to thrilling gaming experiences without breaking the bank or without
 getting annoyed by ads. That's why we've set on a journey to create extensive collection of free games for you to
 enjoy, right at your fingertips. At the outset, we embarked on our journey within the Casual Games genre, crafting
 experiences that delight and entertain.
 
-Learn more about us [here](https://lancerlotgames.github.io/LancerLot/).
+Learn more about us [here](https://lancerlotapps.github.io/LancerLot/).
 
 ## Available Scripts
 
