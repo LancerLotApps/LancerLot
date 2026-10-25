@@ -4,7 +4,7 @@ interface GameHeroProps {
   title: string;
   hideTitle?: boolean;
   description: React.ReactNode;
-  media: {type: 'video'; src: string} | {type: 'image'; src: string} | {type: 'custom'; content: React.ReactNode};
+  media: {type: 'video'; src: string; poster?: string} | {type: 'image'; src: string} | {type: 'custom'; content: React.ReactNode};
   actions?: React.ReactNode;
 }
 
@@ -13,7 +13,7 @@ function GameHero({title, hideTitle = false, description, media, actions}: GameH
     <section className='game-hero'>
       <div className='game-hero-media'>
         {media.type === 'video' ? (
-          <video autoPlay muted loop playsInline>
+          <video autoPlay muted loop playsInline poster={media.poster}>
             <source src={media.src} type='video/mp4'/>
           </video>
         ) : media.type === 'image' ? (
