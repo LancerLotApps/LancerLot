@@ -4,14 +4,14 @@ import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 import evolve2048Icon from '../assets/media/evolve2048/evolve2048.png';
-import tetrisIcon from '../assets/media/tetrisSmiley.png';
+import brickStackIcon from '../assets/media/brickStack.png';
 import snakeScene from '../assets/media/snakeScene.png';
 import {missionEyebrow, missionHeadline, missionSubhead} from '../assets/constants';
 import RevealOnScroll from '../components/RevealOnScroll';
 
 const medallions = [
   {src: evolve2048Icon, alt: 'Evolve 2048', slotClass: 'medallion-slot-a'},
-  {src: tetrisIcon, alt: 'Tetris', slotClass: 'medallion-slot-b'},
+  {src: brickStackIcon, alt: 'Brick Stack', slotClass: 'medallion-slot-b'},
   {src: snakeScene, alt: 'Snake 3D', slotClass: 'medallion-slot-c'},
 ];
 

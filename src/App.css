@@ -90,7 +90,7 @@ html {
   border: 0;
 }
 
-/* ---- Game detail pages (Tetris / Evolve 2048 / Snake) ---- */
+/* ---- Game detail pages (Brick Stack / Evolve 2048 / Snake) ---- */
 /* Fixed, full-viewport, non-scrolling: removes this section from the
    document's normal flow entirely, so the page has nothing to scroll and
    the header/footer auto-hide logic naturally never triggers (it only

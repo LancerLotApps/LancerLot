@@ -21,7 +21,8 @@ export const fbURL: string = `https://www.facebook.com/profile.php?id=1000663617
 export const githubURL: string = `https://github.com/LancerLotGames/LancerLotGames.github.io/blob/main/tetris/README.md`
 export const evolve2048PlayStoreURL: string = `https://play.google.com/store/apps/details?id=com.lancerlot.g2048`
 export const evolve2048PrivacyPolicyURL: string = `https://lancerlotapps.github.io/privacy-policy/evolve2048/`
-export const tetrisPrivacyPolicyURL: string = `https://lancerlotapps.github.io/privacy-policy/tetris/`
+export const brickStackPlayStoreURL: string = `https://play.google.com/store/apps/details?id=com.lancerlot.brickstack`
+export const brickStackPrivacyPolicyURL: string = `https://lancerlotapps.github.io/privacy-policy/brickstack/`
 export const termsAndPrivacy: string = `
 Last updated: August 2026
 

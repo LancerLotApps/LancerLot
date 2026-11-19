@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Card from '../components/Card';
 import RevealOnScroll from '../components/RevealOnScroll';
 import Evolve2048Scene from '../components/Evolve2048Scene';
-import tetrisIcon from '../assets/media/tetrisSmiley.png'
+import brickStackIcon from '../assets/media/brickStack.png'
 import snakeScene from '../assets/media/snakeScene.png'
 
 const cardContent = [
@@ -15,10 +15,10 @@ const cardContent = [
     path: '/evolve2048'
   },
   {
-    title: 'Tetris',
+    title: 'Brick Stack',
     content: 'Control the falling pieces to free the rows, falling speed gradually increases.',
-    imageUrl: tetrisIcon,
-    path: '/tetris'
+    imageUrl: brickStackIcon,
+    path: '/brickstack'
   },
   {
     title: 'Snake 3d',

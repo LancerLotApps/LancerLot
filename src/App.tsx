@@ -1,10 +1,10 @@
 import { ThemeProvider } from '@mui/material/styles';
-import {Route, Routes} from 'react-router-dom';
+import {Navigate, Route, Routes} from 'react-router-dom';
 import './App.css';
 import {theme} from './components/Theme';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Tetris from './pages/Tetris';
+import BrickStack from './pages/BrickStack';
 import Snake from './pages/Snake';
 import Evolve2048 from './pages/Evolve2048';
 import Home from './pages/Home';
@@ -17,7 +17,8 @@ function App() {
       <div className='App'>
         <Navbar/>
         <Routes>
-          <Route path='/tetris' element={<Tetris/>} />
+          <Route path='/brickstack' element={<BrickStack/>} />
+          <Route path='/tetris' element={<Navigate to='/brickstack' replace/>} />
           <Route path='/snake' element={<Snake/>} />
           <Route path='/evolve2048' element={<Evolve2048/>} />
           <Route path='/idea' element={<IdeaPage/>}/>
