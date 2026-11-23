@@ -18,7 +18,7 @@ export const instagramURL: string = `https://www.instagram.com/_lancer_lot/`;
 export const twitterURL: string = `https://x.com/_lancer_lot`;
 export const youtubeURL: string = `https://www.youtube.com/channel/UCKN_X0C7652YZghUMT4rKeQ`;
 export const fbURL: string = `https://www.facebook.com/profile.php?id=100066361705158`;
-export const githubURL: string = `https://github.com/LancerLotGames/LancerLotGames.github.io/blob/main/brickstack/README.md`
+export const githubURL: string = `https://github.com/LancerLotApps`
 export const evolve2048PlayStoreURL: string = `https://play.google.com/store/apps/details?id=com.lancerlot.g2048`
 export const evolve2048PrivacyPolicyURL: string = `https://lancerlotapps.github.io/privacy-policy/evolve2048/`
 export const brickStackPlayStoreURL: string = `https://play.google.com/store/apps/details?id=com.lancerlot.brickstack`
